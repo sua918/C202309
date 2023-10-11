@@ -31,12 +31,12 @@ void classifyStudents(int scores[], char targetGrade) {
 // 학생 성적 총 합을 출력하는 함수 정의
 int sumScores(int scores[]) {
 	int sum = 0;
-	
+
 	// 학생들의 성적을 순서대로 더하는 for문
 	for (int i = 0; i < STUDENTS; i++) {
 		sum += scores[i];
 	}
-	
+
 	// 성적의 총 합 반환
 	return sum;
 }
@@ -60,9 +60,11 @@ double averageScores(int scores[]) {
 
 // 학생 별 성적 순위를 출력하는 함수 정의
 void printRanks(int scores[]) {
+	// 학생들의 성적을 서로 비교하는 이중 for문
 	for (int i = 0; i < STUDENTS; i++) {
 		int rank = 1;
-		for (int j = 1; j < STUDENTS; j++) {
+		for (int j = 0; j < STUDENTS; j++) {
+			// 성적이 비교 대상 성적보다 작은 경우 등수에 1을 더함
 			if (scores[i] < scores[j]) {
 				rank += 1;
 			}
@@ -96,4 +98,4 @@ int main() {
 	printRanks(scores); // 함수 호출
 
 	return 0;
-	}
+}
