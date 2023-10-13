@@ -3,12 +3,14 @@
 // 함수 원형 선언하기
 long multiF(int value);
 
-void main()
+int main()
 {
 	// 함수에서 계산한 결과를 출력함
-	printf("1부터 2까지의 곱은 %d\n", multiF(2));
-	printf("1부터 3까지의 곱은 %d\n", multiF(3));
-	printf("1부터 5까지의 곱은 %d\n", multiF(5));
+	printf("1부터 2까지의 곱은 %ld\n", multiF(2));
+	printf("1부터 3까지의 곱은 %ld\n", multiF(3));
+	printf("1부터 5까지의 곱은 %ld\n", multiF(5));
+
+	return 0;
 }
 
 // 함수 정의하기

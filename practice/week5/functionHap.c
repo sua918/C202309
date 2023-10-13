@@ -3,12 +3,14 @@
 // 함수 원형 선언하기
 int hapf(int value);
 
-void main()
+int main()
 {
 	// 함수에서 계산한 결과를 출력함
 	printf("1부터      10까지의 합은 %d\n", hapf(10));
 	printf("1부터    100까지의 합은 %d\n", hapf(100));
 	printf("1부터  1000까지의 합은 %d\n", hapf(1000));
+
+	return 0;
 }
 
 // 함수 정의하기
