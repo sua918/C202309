@@ -41,10 +41,11 @@ void calculateTravelDays() {
 	// 각 도시별 총 일 수 및 평균 일 수 계산 및 출력
 	for (int i = 0; i < NUMCITY; i++) {
 		int totalDays = 0;
+		float averageDays = 0;
 		for (int j = 0; j < NUMPEOPLE; j++) {
 			totalDays += travelDays[i][j];
 		}
-		float averageDays = (float)totalDays / NUMPEOPLE;
+		averageDays = (float)totalDays / NUMPEOPLE;
 		printf("도시 %s에서 보낸 총 일수 : %d, 평균 일 수 : %.2f\n", cities[i], totalDays, averageDays);
 	}
 }

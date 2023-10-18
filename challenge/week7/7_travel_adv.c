@@ -6,6 +6,9 @@ char names[NUMPEOPLE][10];
 char cities[NUMCITY][10];
 
 void calculateTravelDays();
+int getSum(int numArray[], int length);
+double getAverage(int numArray[], int length);
+void getFamousCity(double dayArray[], int length);
 
 int main() {
 
@@ -22,7 +25,7 @@ int main() {
 	}
 
 	// 함수 호출
-	calculateTravelDays(names);
+	calculateTravelDays();
 
 	return 0;
 }
@@ -42,37 +45,40 @@ void calculateTravelDays() {
 	for (int i = 0; i < NUMCITY; i++) {
 		int totalDays = getSum(travelDays[i], NUMPEOPLE);
 		double averageDay = getAverage(travelDays[i], NUMPEOPLE);
-		printf("도시 %s에서 보낸 총 일수 : %d, 평균 일 수 : %.2f\n", cities[i], totalDays, averageDays);
+		printf("도시 %s에서 보낸 총 일수 : %d, 평균 일 수 : %.2f\n", cities[i], totalDays, averageDay);
 		averageDays[i] = averageDay;
 	}
 	getFamousCity(averageDays, NUMCITY);
+}
 
-	int getSum(int numArray[], int length) {
-		int totalDays = 0;
-		for (int i = 0; i < length; i++) {
-			totalDays += numArray[i];
-		}
-		return totalDays;
+// 각 도시에서 보낸 총 일수를 계산하는 함수
+int getSum(int numArray[], int length) {
+	int totalDays = 0;
+	for (int i = 0; i < length; i++) {
+		totalDays += numArray[i];
 	}
+	return totalDays;
+}
 
-	double getAverage(int numArray[], int length) {
-		int totalDays = 0;
-		for (int i = 0; i < length; i++) {
-			totalDays += numArray[i];
-		}
-		double averageDays = (double)totalDays / length;
-		return averageDays;
+// 각 도시에서 보낸 평균 일수를 계산하는 함수
+double getAverage(int numArray[], int length) {
+	int totalDays = 0;
+	for (int i = 0; i < length; i++) {
+		totalDays += numArray[i];
 	}
+	double averageDays = (double)totalDays / length;
+	return averageDays;
+}
 
-	void getFamousCity(double dayArray[], int length) {
-		double maxDay = 0;
-		int maxDayIndex = 0;
-		for (int i = 0; i < length; i++) {
-			if (dayArray[i] > maxDay) {
-				maxDay = dayArray[i];
-				maxDayIndex = i;
-			}
+// 도시 별 머문 평균 일수를 기반으로 가장 인기있는 도시를 출력하는 함수
+void getFamousCity(double dayArray[], int length) {
+	double maxDay = 0;
+	int maxDayIndex = 0;
+	for (int i = 0; i < length; i++) {
+		if (dayArray[i] > maxDay) {
+			maxDay = dayArray[i];
+			maxDayIndex = i;
 		}
-		printf("평균일 기준으로 가장 인기있었던 도시는 %s 입니다. (평균머문일: %.2f)\n", cities[maxDayIndex], maxDay);
 	}
+	printf("평균일 기준으로 가장 인기있었던 도시는 %s 입니다. (평균머문일: %.2f)\n", cities[maxDayIndex], maxDay);
 }
